@@ -8,7 +8,7 @@ const url = require('url')
 
 // Application configurations
 const PORT = process.env.PORT
-const Vadd = "0x58453e850E62979960ebA94eD78877ab36F551B8";
+const Vadd = "0x422BBe57C28B32C53E8C752408876076B2561d17";
 const Vabi = [
 	{
 		"inputs": [
@@ -123,7 +123,7 @@ const checkIfUserExists = async (hash) => {
 	var config = {
 	  method: 'post',
 	  maxBodyLength: Infinity,
-	  url: 'https://api.thegraph.com/subgraphs/name/abhay-2811/verifyx',
+	  url: 'https://api.thegraph.com/subgraphs/name/abhay-2811/uniquex',
 	  headers: {
 		'Content-Type': 'application/json'
 	  },
