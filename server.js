@@ -60,7 +60,7 @@ app.get('/auth/', async (req, res) => {
         client_secret: DISCORD_OAUTH_SECRET,
         grant_type: 'authorization_code',
         code: code.toString(),
-        redirect_uri: 'http://localhost:5500/auth/'
+        redirect_uri: 'http://localhost:5500/auth/' //change here
       })
       const response = await axios.post(
         'https://discord.com/api/v10/oauth2/token',
@@ -88,10 +88,10 @@ app.get('/auth/', async (req, res) => {
     await checkIfUserExists(userHash);
     if(!Exists){
       await createUser(D_id);
-      res.redirect('http://127.0.0.1:5501/frontend/disc_verified.html');
+      res.redirect('https://unique-x-frontend.vercel.app/disc_verified.html');
     }
     else{
-      res.redirect('http://127.0.0.1:5501/frontend/exists.html'); //change to already exists page
+      res.redirect('https://unique-x-frontend.vercel.app/exists.html'); //change to already exists page
     }
     
 
@@ -170,7 +170,7 @@ const createUser = async (D_id) =>{
   var web3 = new Web3(web3Provider)
   const Vcontract = new web3.eth.Contract(Vabi, Vadd);
   const signer = web3.eth.accounts.privateKeyToAccount(
-    '0xd8f0bd0d2d9f638d123e8991df564c208866da35657026d8bb75a7961d269865'
+    process.env.PRIVATE_KEY
   )
   web3.eth.accounts.wallet.add(signer)
   
@@ -186,5 +186,3 @@ const createUser = async (D_id) =>{
   console.log(`User added.`);
 }
 bootstrap()
-// http://127.0.0.1:5501/fontend/index.html
-// http://127.0.0.1:5501/frontend/index.html
