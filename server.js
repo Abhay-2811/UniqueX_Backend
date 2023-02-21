@@ -60,7 +60,7 @@ app.get('/auth/', async (req, res) => {
         client_secret: DISCORD_OAUTH_SECRET,
         grant_type: 'authorization_code',
         code: code.toString(),
-        redirect_uri: 'http://localhost:5500/auth/' //change here
+        redirect_uri: 'https://rich-teal-frog-boot.cyclic.app/auth/' //change here
       })
       const response = await axios.post(
         'https://discord.com/api/v10/oauth2/token',
